@@ -599,23 +599,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .gallery-item-1 {
   grid-column: span 2;
   grid-row: span 2;
-  background-image: url('cmi_assets/wa_classroom_full.jpeg');
+  background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1600&q=85');
 }
 .gallery-item-2 {
-  background-image: url('cmi_assets/wa_boys_studying.jpeg');
+  background-image: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=900&q=85');
 }
 .gallery-item-3 {
-  background-image: url('cmi_assets/wa_girls_studying.jpeg');
+  background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=85');
 }
 .gallery-item-4 {
   grid-column: span 2;
-  background-image: url('cmi_assets/wa_group_smiling.jpeg');
+  background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1600&q=85');
 }
 .gallery-item-5 {
-  background-image: url('cmi_assets/storefront_real_1.png');
+  background-image: url('https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?w=900&q=85');
 }
 .gallery-item-6 {
-  background-image: url('cmi_assets/wa_boys_back.jpeg');
+  background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?w=900&q=85');
 }
 
 /* ============ PRICING ============ */
