@@ -1,5 +1,5 @@
 /* ===========================================
-   CMI · Career Makers Institute
+   CMI Edutech Pvt. Ltd.
    Landing page interactions
    =========================================== */
 
@@ -23,7 +23,6 @@
 
   // ============ NAV SCROLL STATE ============
   const nav = document.getElementById('nav');
-  let lastScroll = 0;
 
   const handleScroll = () => {
     const y = window.scrollY;
@@ -34,7 +33,6 @@
       nav.style.background = 'rgba(255, 255, 255, 0.72)';
       nav.style.borderBottomColor = 'rgba(0,0,0,0.06)';
     }
-    lastScroll = y;
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
@@ -52,10 +50,10 @@
       const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight + 1;
       window.scrollTo({ top: targetTop, behavior: 'smooth' });
 
-      // Close mobile menu if open
       const menu = document.querySelector('.nav-menu');
       if (menu.classList.contains('is-open')) {
         menu.classList.remove('is-open');
+        menu.removeAttribute('style');
       }
     });
   });
@@ -69,7 +67,6 @@
       navMenu.classList.toggle('is-open');
       navToggle.classList.toggle('is-active');
 
-      // Inline mobile menu styling on toggle
       if (navMenu.classList.contains('is-open')) {
         Object.assign(navMenu.style, {
           display: 'flex',
@@ -100,7 +97,6 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
-      // Basic validation
       if (!data.name || !data.phone || !data.class) {
         showFormMessage('Please fill in all required fields.', 'error');
         return;
@@ -112,11 +108,10 @@
         return;
       }
 
-      // Simulate submit + redirect to WhatsApp with prefilled message
       const waMessage = encodeURIComponent(
-        `Hi CMI, I'd like to enquire about admissions.\n\n` +
-        `Name: ${data.name}\n` +
-        `Phone: ${data.phone}\n` +
+        `Hello CMI, I would like to enquire about the classroom programme.\n\n` +
+        `Student name: ${data.name}\n` +
+        `Contact: ${data.phone}\n` +
         `Class: ${data.class}` +
         (data.message ? `\nMessage: ${data.message}` : '')
       );
@@ -158,7 +153,7 @@
     }
   }
 
-  // ============ HERO PARALLAX ON SCROLL ============
+  // ============ HERO PARALLAX ============
   const heroBg = document.querySelector('.hero-bg');
   const heroContent = document.querySelector('.hero-content');
 
@@ -172,30 +167,5 @@
       }
     }, { passive: true });
   }
-
-  // ============ MARQUEE PAUSE ON HOVER ============
-  const marqueeTrack = document.querySelector('.marquee-track');
-  if (marqueeTrack) {
-    marqueeTrack.addEventListener('mouseenter', () => {
-      marqueeTrack.style.animationPlayState = 'paused';
-    });
-    marqueeTrack.addEventListener('mouseleave', () => {
-      marqueeTrack.style.animationPlayState = 'running';
-    });
-  }
-
-  // ============ FEATURE CARD CURSOR GLOW ============
-  const featureCards = document.querySelectorAll('.feature-card');
-  featureCards.forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(184,146,76,0.06), #fff 60%)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.background = '#fff';
-    });
-  });
 
 })();
